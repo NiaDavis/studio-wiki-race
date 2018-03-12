@@ -90,7 +90,7 @@ export default class WikiApi {
   }
 }
 
-// Private function for the WikiApi module.
+//Private function for the WikiApi module.
 function queryWikiApi(queryParams) {
   var params = $.extend(queryParams, {
     action: 'query',
@@ -98,6 +98,7 @@ function queryWikiApi(queryParams) {
     origin: '*',
     redirects: true,
   });
+  
   return $.get('https://en.wikipedia.org/w/api.php', params)
       .then(function(data) {
         if ('errors' in data) {

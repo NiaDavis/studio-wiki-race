@@ -19,7 +19,7 @@ export default class WikiSetup extends Component {
         state: { titles: [this.state.title] },
       };
       return (
-        <Link to={link}>
+        <Link to = {link}>
           <Button>Start with {this.state.title}</Button>
         </Link>
       );

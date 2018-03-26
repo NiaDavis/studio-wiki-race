@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import WikiLinks from './WikiLinks.js';
-import WikiSummary from './WikiSummary.js';
+import WikiApi from './WikiApi.js';
 
 export default class WikiLinks extends Component {
-  render() {
-    var isComplete = this.props.isComplete;
-    var titles = this.props.titles;
-    var currentTitle = this.props.currentTitle;
-    var targetTitle = this.props.targetTitle;
+    constructor(props) {
+        super(props);
+        this.state = { links: [] };
+    }
     
-    var addTitle = this.props.addTitle;
-    var setCurrentTitle = this.props.setCurrentTitle;
+    componentDidMount() {
+        WikiApi.getSummary(this.props.title).then(
+            text => this.setState({ summary: text }));
+    }
     
-    return (
-      <div>
-        <wikiSummary title ={currentTitle}/>
-        <WikiLinks title = {currentTitle}/>
-      </div>
-    );
-  }
+    render() {
+        var links = this.state.links;
+        var items = [];
+        for (var i = 0; i < links.length; i++) {
+            items.push(<p>{links(i)}</p>);
+        }
+        var coolerItems = links.map(link => <p>{link}</p>);
+        return (<div>{coolerItems}</div>);
+    }
 }

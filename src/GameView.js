@@ -15,7 +15,7 @@ export default class GameView extends Component {
             function(text) {
               self.setState({
                   summary: text
-              }); 
+              });
             });
     }
     

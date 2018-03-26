@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WikiLinks from './WikiLinks.js';
 import WikiSummary from './WikiSummary.js';
 
-export default class WikiLinks extends Component {
+export default class WikiGameApp extends Component {
   render() {
     var isComplete = this.props.isComplete;
     var titles = this.props.titles;
@@ -14,7 +14,7 @@ export default class WikiLinks extends Component {
     
     return (
       <div>
-        <wikiSummary title ={currentTitle}/>
+        <wikiSummary title = {currentTitle}/>
         <WikiLinks title = {currentTitle}/>
       </div>
     );
